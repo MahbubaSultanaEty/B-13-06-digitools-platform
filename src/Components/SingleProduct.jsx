@@ -1,8 +1,9 @@
 import React from 'react';
 import { Icon } from "@iconify/react";
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 
-const SingleProduct = ({ product, cart, setCart }) => {
+const SingleProduct = ({ product, cart, setCart}) => {
     
     // console.log(product.name);
     let bgColor;
@@ -16,10 +17,16 @@ const SingleProduct = ({ product, cart, setCart }) => {
 
 
      const [isAddedToCart, setIsAddedToCart] = useState(false);
-
     const handleAddToCart = () => {
         setIsAddedToCart(true);
-        setCart([...cart, product])
+        const isFound = cart.find(item => item.id == product.id);
+        if (isFound) {
+            setCart(cart);
+            toast.error("Product already added to your cart", { position: "top-center" });
+            return;
+        }
+        setCart([...cart, product]);
+        toast.success("Product added to your cart successfully", {position: "top-center"})
     }
     console.log(cart);
     return (

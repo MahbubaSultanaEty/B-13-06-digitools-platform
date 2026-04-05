@@ -19,17 +19,17 @@ function App() {
   const productPromise = getProducts();
 
   const [isActiveTab, setIsActiveTab] = useState("products");
-
+   const [cart, setCart] = useState([]);
 
   return (
     <>
-      <Navbar></Navbar>
+      <Navbar cart={cart}></Navbar>
       <Banner></Banner>
       <Stats></Stats>
 
 
       <Suspense>
-        <Main setIsActiveTab={setIsActiveTab} isActiveTab={isActiveTab} productPromise={productPromise}></Main>
+        <Main cart={cart} setCart={setCart} setIsActiveTab={setIsActiveTab} isActiveTab={isActiveTab} productPromise={productPromise}></Main>
      
      </Suspense>
         

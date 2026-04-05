@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaCartShopping } from "react-icons/fa6";
 
-const Navbar = () => {
+const Navbar = ({cart}) => {
     return (
         <div>
             <div className="navbar bg-base-100 shadow-sm">
@@ -35,7 +35,7 @@ const Navbar = () => {
                    
                     {/* cart icon */}
                     <div className="indicator">
-  <span className="indicator-item badge badge-success text-xs px-1 py-0">0</span>
+              <span className="indicator-item badge badge-primary text-xs px-1 py-0">{ cart.length}</span>
   <FaCartShopping className='text-xl' />
 </div>
 

@@ -1,11 +1,24 @@
 import { Icon } from '@iconify/react';
 import React from 'react';
+import { toast } from 'react-toastify';
 
-const Cart = ({ cart, setCart }) => {
+const Cart = ({ cart, setCart , setIsAddedToCart}) => {
 
-    const totalPrice = cart.reduce((sum, item) => sum + item.price, 0);
-    console.log(totalPrice);
+     const total = cart.reduce((sum, item) => sum + item.price, 0);
+    // console.log(totalPrice);
+
+    const totalPrice = total.toFixed(2);
+    const deleteProductFromCart = (cartproduct) =>{
+        const filteredCart = cart.filter(cartItem => cartItem.id !== cartproduct.id)
+        setCart(filteredCart);
+        toast.warning("Product removed from your cart ", { position: "top-center" });
+          
+    }
     
+    const handleCheckout = () =>{
+        setCart([])
+        toast("Checkout Successful", {position: "top-center"})
+    }
     return (
         <div className='grid p-4 gap-3 border border-gray-200 my-2 rounded'>
             <h2 className='text-2xl font-semibold
@@ -25,7 +38,9 @@ const Cart = ({ cart, setCart }) => {
                             <p>$ { cartproduct.price}</p>
                         </div>
                     </div>
-                    <button className='btn btn-ghost text-red-600'>Remove</button>
+                    <button
+                        onClick={() => deleteProductFromCart(cartproduct)}
+                        className='btn btn-ghost text-red-600'>Remove</button>
                 </div>
             })}
                         </>
@@ -38,7 +53,7 @@ const Cart = ({ cart, setCart }) => {
                 <h6>$ {totalPrice} </h6>
             </div>
             <button
-                onClick={() => setCart([])} 
+                onClick={handleCheckout} 
                 className="btn bg-gradient-to-r from-[rgba(79,57,246,1)] to-[rgba(149,20,250,1)] rounded-full text-white btn-block">Proceed To Checkout</button>
         </div>
     );
