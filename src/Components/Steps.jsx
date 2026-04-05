@@ -5,6 +5,7 @@ import rocket from "../assets/rocket.png"
 
 const Steps = () => {
     return (
+        <div className='bg-zinc-100 py-4 my-6'>
         <div className='max-w-7xl mx-auto my-12'>
             <div className='w-[90%] text-center mx-auto space-y-2 mb-4'>
                 <h2 className='text-4xl md:text-5xl font-bold'>Get Started in 3 Steps</h2>
@@ -60,7 +61,8 @@ tools immediately.</p>
                 </div>
                 
            </div>
-        </div>
+            </div>
+            </div>
     );
 };
 

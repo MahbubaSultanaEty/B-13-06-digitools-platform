@@ -7,6 +7,7 @@ import Products from './Components/Products';
 import Cart from './Components/Cart'
 import Main from './Components/Main'
 import Steps from './Components/Steps'
+import Pricing from './Components/Pricing'
 
 
 const getProducts = async () => {
@@ -34,7 +35,8 @@ function App() {
      
      </Suspense>
         
-     <Steps></Steps>
+      <Steps></Steps>
+      <Pricing></Pricing>
 
     </>
   )
