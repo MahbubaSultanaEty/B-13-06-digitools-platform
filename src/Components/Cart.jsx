@@ -2,7 +2,7 @@ import { Icon } from '@iconify/react';
 import React from 'react';
 import { toast } from 'react-toastify';
 
-const Cart = ({ cart, setCart , setIsAddedToCart}) => {
+const Cart = ({ cart, setCart }) => {
 
      const total = cart.reduce((sum, item) => sum + item.price, 0);
     // console.log(totalPrice);

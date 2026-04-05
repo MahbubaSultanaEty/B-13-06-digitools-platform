@@ -6,10 +6,11 @@ import Stats from './Components/Stats'
 import Products from './Components/Products';
 import Cart from './Components/Cart'
 import Main from './Components/Main'
+import Steps from './Components/Steps'
 
 
 const getProducts = async () => {
-  const res = await fetch("/public/products.json");
+  const res = await fetch("/products.json");
   return res.json();
 }
 
@@ -33,7 +34,7 @@ function App() {
      
      </Suspense>
         
-     
+     <Steps></Steps>
 
     </>
   )

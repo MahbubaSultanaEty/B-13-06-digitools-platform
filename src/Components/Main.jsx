@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+
 import Products from './Products';
 import Cart from './Cart';
 
@@ -15,7 +15,7 @@ const Main = ({ productPromise, setIsActiveTab, isActiveTab, cart, setCart }) =>
             <div className='max-w-7xl mx-auto my-10'>
             <div className='w-[90%] text-center mx-auto space-y-2 mb-4'>
                 <h2 className='text-4xl md:text-5xl font-bold'>Premium Digital Tools</h2>
-                <p className='text-sm font-semibold text-purple-400'>Choose from our curated collection of premium digital products designed
+                <p className='text-sm font-semibold text-purple-900'>Choose from our curated collection of premium digital products designed
                         to boost your productivity and creativity.</p>
                 </div>
                 
