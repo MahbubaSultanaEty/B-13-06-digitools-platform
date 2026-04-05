@@ -5,8 +5,6 @@ import Cart from './Cart';
 
 const Main = ({ productPromise, setIsActiveTab, isActiveTab }) => {
     
-    // const [cart, setCart]= useState([])
-    
 
     const [cart, setCart] = useState([]);
     console.log(isActiveTab);
@@ -39,7 +37,7 @@ const Main = ({ productPromise, setIsActiveTab, isActiveTab }) => {
 </div>
 
 <div className={isActiveTab === "cart" ? "block" : "hidden"}>
-  <Cart cart={cart} />
+  <Cart setCart={setCart} cart={cart} />
 </div>
            
             
