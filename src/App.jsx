@@ -4,6 +4,8 @@ import Navbar from './Components/Navbar'
 import Banner from './Components/Banner'
 import Stats from './Components/Stats'
 import Products from './Components/Products';
+import Cart from './Components/Cart'
+import Main from './Components/Main'
 
 
 const getProducts = async () => {
@@ -11,8 +13,12 @@ const getProducts = async () => {
   return res.json();
 }
 
+
+
 function App() {
-  const productPromise = getProducts()
+  const productPromise = getProducts();
+
+  const [isActiveTab, setIsActiveTab] = useState("products");
 
 
   return (
@@ -20,9 +26,14 @@ function App() {
       <Navbar></Navbar>
       <Banner></Banner>
       <Stats></Stats>
-      <Suspense fallback={<span className="loading loading-ring loading-xl"></span>}>
-        <Products productPromise={productPromise}></Products>
-        </Suspense>
+
+
+      <Suspense>
+        <Main setIsActiveTab={setIsActiveTab} isActiveTab={isActiveTab} productPromise={productPromise}></Main>
+     
+     </Suspense>
+        
+     
 
     </>
   )

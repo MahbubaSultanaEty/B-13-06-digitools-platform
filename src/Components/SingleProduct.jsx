@@ -2,7 +2,7 @@ import React from 'react';
 import { Icon } from "@iconify/react";
 import { useState } from 'react';
 
-const SingleProduct = ({ product }) => {
+const SingleProduct = ({ product, cart, setCart }) => {
     
     // console.log(product.name);
     let bgColor;
@@ -11,18 +11,24 @@ const SingleProduct = ({ product }) => {
     } else if (product.tagType === "popular") {
         bgColor = "bg-blue-500";
     } else {
-        bgColor = "bg-gold-500";
+        bgColor = "bg-gold-600";
     }
 
 
-    const [isAddedToCart, setIsAddedToCart] = useState(false); 
+     const [isAddedToCart, setIsAddedToCart] = useState(false);
+
+    const handleAddToCart = () => {
+        setIsAddedToCart(true);
+        setCart([...cart, product])
+    }
+    console.log(cart);
     return (
         
         <div className="card w-96 bg-base-100 shadow-sm mx-auto">                  
         
             <div className="card-body">
                 <div className=' text-right'>
-                    <span className={`badge ${bgColor} badge-xs badge-warning text-right p-2`} >{product.tagType} </span>
+                    <span className={`badge ${bgColor} text-white badge-xs badge-warning text-right p-2`} >{product.tagType} </span>
                 </div>
                 <Icon icon={product.icon} width="60px"></Icon>
                 <div className=" space-y-2 h-28">                   
@@ -43,7 +49,7 @@ const SingleProduct = ({ product }) => {
     </ul>
     <div className="mt-6">
                     <button
-                        onClick={() => setIsAddedToCart(true)}
+                        onClick={() => handleAddToCart(product) }
                         className="btn bg-gradient-to-r from-[rgba(79,57,246,1)] to-[rgba(149,20,250,1)] rounded-full text-white btn-block">{isAddedToCart ? "Added to Cart" : "Buy Now"}</button>
     </div>
   </div>
