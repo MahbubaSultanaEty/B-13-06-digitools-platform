@@ -8,6 +8,8 @@ import Cart from './Components/Cart'
 import Main from './Components/Main'
 import Steps from './Components/Steps'
 import Pricing from './Components/Pricing'
+import Testimonial from './Components/Testimonial'
+import Footer from './Components/Footer'
 
 
 const getProducts = async () => {
@@ -37,6 +39,8 @@ function App() {
         
       <Steps></Steps>
       <Pricing></Pricing>
+      <Testimonial></Testimonial>
+      <Footer></Footer>
 
     </>
   )
